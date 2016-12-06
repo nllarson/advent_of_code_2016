@@ -23,13 +23,10 @@ println "Sector Sum: ${sectorSum} -- Valid: ${validRooms} -- Invalid: ${invalidR
 
 assert new RoomDecoder(encryptedData: 'qzmt-zixmtkozy-ivhz-343[oarel]').decode() == 'very encrypted name'
 
-def npSector = ''
-
 new File('input.txt').eachLine {data ->
   def decoded = new RoomDecoder(encryptedData: data)
 
   if (decoded.isValid() && decoded.decode() =~ /.*north.*/) {
     println "Room Name: ${decoded.decode()} -- Sector: ${decoded.getSector()}"
-    // npSector = decoded.getSector()
   }
 }
